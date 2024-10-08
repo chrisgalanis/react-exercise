@@ -1,8 +1,6 @@
 
-// Server Side Rendering Component
+
 import React from 'react'
-import AddToCard from './AddToCard'
-import styles from './ProductCard.module.css'
 
 interface Product
 {
@@ -13,14 +11,28 @@ interface Product
 
 }
 
-
 const ProductCard = ({product} : {product : Product}) => {
-  return (
-    <div className={styles.card}>
+ 
+  if (product.active)
+  {
+    return (
+      <div className='product'>
+          { 
+            // Image at location : https://be.givelink.app/images/products/ + imagePath
+          }
+          <img src={ "https://be.givelink.app/images/products/" + product.imagePath } alt={ product.name }></img>
 
-
-        <AddToCard></AddToCard>
-    </div>
+          <div className='product-info'>
+              <p>{product.name}</p>
+              <div className='price'>
+                  <p>{product.price} €</p>
+              </div>
+          </div>
+      </div>
+    )
+  }
+  return(
+    <></>
   )
 }
 

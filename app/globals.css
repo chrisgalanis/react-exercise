@@ -3,13 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+:root 
+{
   --background-left: #7F4BEE;
   --background-right: #FF5758;
   --foreground: #171717;
+  --product_name: #393939;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) 
+{
   :root {
     --background-left: #7F4BEE;
     --background-right: #FF5758;
@@ -18,14 +21,95 @@
   }
 }
 
-body {
-  color: var(--foreground);
+
+.body 
+{
   background: linear-gradient(to right, var(--background-left), var(--background-right));
-  font-family: Arial, Helvetica, sans-serif;
+  @apply p-5;
 }
+
+
+.container 
+{
+  @apply font-sans bg-indigo-100 text-gray-800 m-0 p-5 mx-auto  justify-center items-center min-h-screen rounded-lg;
+}
+
+
+h1 
+{
+  @apply text-purple-600 text-center p-5 text-4xl;
+}
+
+
+
+/* Product List */
+
+.product-list 
+{
+  @apply grid grid-cols-5 gap-5;
+}
+
+
+.product 
+{
+  @apply bg-white rounded-lg p-4 text-center shadow-lg  flex flex-col items-center hover:bg-slate-300;
+}
+
+.product img 
+{
+  @apply w-24 h-24 ;
+}
+
+.product-info 
+{
+  @apply text-product_name my-2 truncate w-40;
+}
+
+.price 
+{
+  @apply text-xl font-bold mt-2;
+}
+
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
+
+/* Media query for smaller screens */
+@media (max-width: 500px) {
+  .cart-card {
+    @apply p-4;
+  }
+
+  .cart-card h2 {
+    @apply text-xl;
+  }
+
+  .product-info img {
+    @apply w-12 h-12; 
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .product-list {
+    @apply grid-cols-2; /* Two columns on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .product-list {
+    @apply grid-cols-1; /* Single column on small screens */
+  }
+
+  .container {
+    @apply flex-col; /* Stack items vertically on small screens */
+  }
+
+
+}
+
+
+
