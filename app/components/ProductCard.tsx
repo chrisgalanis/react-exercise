@@ -28,7 +28,7 @@ const ProductCard = ({product}: {product: Product}) => {
       </div>
     );
   }
-  return <></>;
+  return null; // Return Null better than <></>: Avoids useless rendering
 };
 
 export default ProductCard;
