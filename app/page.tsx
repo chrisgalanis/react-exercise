@@ -3,6 +3,7 @@
 import ProductCard from './components/ProductCard';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
+import { log } from 'console';
 
 // Object type Product need to have this Struct
 interface Product {
@@ -25,9 +26,10 @@ function App() {
         const response = await axios.get<Record<string, Product[]>>(
           'https://be.givelink.app/data',
         );
-
+        console.log(response.data.products);
+        
         // Set Array Product to the updated response
-        setProducts(Object.values(response.data.products)); // => From the response.data get only object with key 'product'
+        setProducts(Object.values(response.data.products).filter((product) => product.active == true)); // => From the response.data get only object with key 'product'
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -42,9 +44,11 @@ function App() {
         <div className="container">
           <h1> Λίστα Αναγκών μας </h1>
           <div className="product-list">
-            {products.map((product, index) => (
-              <ProductCard key={index} product={product} />
-            ))}
+            {
+            products.map((product) => (
+              <ProductCard key={product.name} product={product} />
+            ))
+            }
           </div>
         </div>
       </div>
