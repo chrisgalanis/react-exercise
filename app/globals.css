@@ -1,75 +1,61 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root 
-{
-  --background-left: #7F4BEE;
-  --background-right: #FF5758;
+:root {
+  --background-left: #7f4bee;
+  --background-right: #ff5758;
   --foreground: #171717;
   --product_name: #393939;
 }
 
-@media (prefers-color-scheme: dark) 
-{
+@media (prefers-color-scheme: dark) {
   :root {
-    --background-left: #7F4BEE;
-    --background-right: #FF5758;
+    --background-left: #7f4bee;
+    --background-right: #ff5758;
     --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
 
-
-.body 
-{
-  background: linear-gradient(to right, var(--background-left), var(--background-right));
+.body {
+  background: linear-gradient(
+    to right,
+    var(--background-left),
+    var(--background-right)
+  );
   @apply p-5;
 }
 
-
-.container 
-{
+.container {
   @apply font-sans bg-indigo-100 text-gray-800 m-0 p-5 mx-auto  justify-center items-center min-h-screen rounded-lg;
 }
 
-
-h1 
-{
+h1 {
   @apply text-purple-600 text-center p-5 text-4xl;
 }
 
-
-
 /* Product List */
 
-.product-list 
-{
+.product-list {
   @apply grid grid-cols-5 gap-5;
 }
 
-
-.product 
-{
+.product {
   @apply bg-white rounded-lg p-4 text-center shadow-lg  flex flex-col items-center hover:bg-slate-300;
 }
 
-.product img 
-{
-  @apply w-24 h-24 ;
+.product img {
+  @apply w-24 h-24;
 }
 
-.product-info 
-{
+.product-info {
   @apply text-product_name my-2 truncate w-40;
 }
 
-.price 
-{
+.price {
   @apply text-xl font-bold mt-2;
 }
-
 
 @layer utilities {
   .text-balance {
@@ -88,7 +74,7 @@ h1
   }
 
   .product-info img {
-    @apply w-12 h-12; 
+    @apply w-12 h-12;
   }
 }
 
@@ -107,9 +93,4 @@ h1
   .container {
     @apply flex-col; /* Stack items vertically on small screens */
   }
-
-
 }
-
-
-
