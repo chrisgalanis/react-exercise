@@ -42,7 +42,7 @@ h1 {
 }
 
 .product {
-  @apply bg-white rounded-lg p-4 text-center shadow-lg  flex flex-col items-center hover:bg-slate-300;
+  @apply bg-white rounded-lg p-4 text-center shadow-lg  flex flex-col items-center hover:bg-slate-300 hover:cursor-pointer;
 }
 
 .product img {
