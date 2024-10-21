@@ -27,7 +27,7 @@ function App() {
         );
 
         // Set Array Product to the updated response
-        setProducts(Object.values(response.data.products)); // => From the response.data get only object with key 'product'
+        setProducts(Object.values(response.data.products).filter((product) => product.active == true)); // => From the response.data get only object with key 'product'
       } catch (error) {
         console.error('Error fetching data:', error);
       }

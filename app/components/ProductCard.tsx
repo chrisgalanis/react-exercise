@@ -8,7 +8,7 @@ interface Product {
 }
 
 const ProductCard = ({product}: {product: Product}) => {
-  if (product.active) {
+
     return (
       <div className="product">
         {
@@ -27,8 +27,6 @@ const ProductCard = ({product}: {product: Product}) => {
         </div>
       </div>
     );
-  }
-  return null; // Return Null better than <></>: Avoids useless rendering
 };
 
 export default ProductCard;
